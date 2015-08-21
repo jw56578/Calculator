@@ -1,0 +1,6 @@
+c:\users\jwoo\documents\visual studio 2013\Projects\CalculatorCompiler\CalculatorCompiler\bin\Debug\CalculatorCompiler.exe.config
+c:\users\jwoo\documents\visual studio 2013\Projects\CalculatorCompiler\CalculatorCompiler\bin\Debug\CalculatorCompiler.exe
+c:\users\jwoo\documents\visual studio 2013\Projects\CalculatorCompiler\CalculatorCompiler\bin\Debug\CalculatorCompiler.pdb
+c:\users\jwoo\documents\visual studio 2013\Projects\CalculatorCompiler\CalculatorCompiler\obj\Debug\CalculatorCompiler.csprojResolveAssemblyReference.cache
+c:\users\jwoo\documents\visual studio 2013\Projects\CalculatorCompiler\CalculatorCompiler\obj\Debug\CalculatorCompiler.exe
+c:\users\jwoo\documents\visual studio 2013\Projects\CalculatorCompiler\CalculatorCompiler\obj\Debug\CalculatorCompiler.pdb
