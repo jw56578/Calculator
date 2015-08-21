@@ -1,3 +1,3 @@
-import {sayHello} from './greeter';
+import {sayHello} from 'jw56578/TestReusableLibrary';
 
 sayHello();

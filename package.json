@@ -1,6 +1,9 @@
 {
   "jspm": {
     "directories": {},
+    "dependencies": {
+      "jw56578/TestReusableLibrary": "github:jw56578/TestReusableLibrary@master"
+    },
     "devDependencies": {
       "babel": "npm:babel-core@^5.1.13",
       "babel-runtime": "npm:babel-runtime@^5.1.13",

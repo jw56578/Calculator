@@ -18,6 +18,7 @@ System.config({
     "babel": "npm:babel-core@5.7.4",
     "babel-runtime": "npm:babel-runtime@5.7.0",
     "core-js": "npm:core-js@0.9.18",
+    "jw56578/TestReusableLibrary": "github:jw56578/TestReusableLibrary@master",
     "github:jspm/nodelibs-process@0.1.1": {
       "process": "npm:process@0.10.1"
     },
