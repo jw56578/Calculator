@@ -51,21 +51,27 @@ class FourFuncCalcApp
     public static void Main()
     {
         Console.WriteLine("Four Function Calculator (Ctrl-D to quit, Enter after each line, ';' to end expression)");
-        Lexer lexer = new Lexer(Console.ReadLine());
-        Parser parser = new Parser(lexer);
+
+        var input = "";
+        while (!string.IsNullOrEmpty(input = Console.ReadLine())) {
+            Lexer lexer = new Lexer(input);
+            Parser parser = new Parser(lexer);
+            try
+            {
+                parser.Parse();
+            }
+            catch
+            {
+                Console.WriteLine("Doh!!");
+            }
+        }
+        
 
        
-        try
-        {
-            parser.Parse();
-        }
-        catch
-        {
-            Console.WriteLine("Doh!!");
-        }
+        
 
         Console.WriteLine("Finished.");
-        lexer = new Lexer(Console.ReadLine());
+        
     }
 }
 
