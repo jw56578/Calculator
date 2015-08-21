@@ -7,3 +7,6 @@ c:\users\jwoo\documents\visual studio 2013\Projects\CalculatorCompiler\Calculato
 C:\projects\Calculator\CalculatorCompiler\CalculatorCompiler\bin\Debug\CalculatorCompiler.exe.config
 C:\projects\Calculator\CalculatorCompiler\CalculatorCompiler\obj\Debug\CalculatorCompiler.exe
 C:\projects\Calculator\CalculatorCompiler\CalculatorCompiler\obj\Debug\CalculatorCompiler.pdb
+C:\projects\Calculator\CalculatorCompiler\CalculatorCompiler\bin\Debug\CalculatorCompiler.exe
+C:\projects\Calculator\CalculatorCompiler\CalculatorCompiler\bin\Debug\CalculatorCompiler.pdb
+C:\projects\Calculator\CalculatorCompiler\CalculatorCompiler\obj\Debug\CalculatorCompiler.csprojResolveAssemblyReference.cache
