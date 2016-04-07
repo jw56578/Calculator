@@ -1,6 +1,10 @@
-﻿using System;
+﻿using CalculatorCompiler;
+using System;
 
-
+public interface ILexer
+{
+    void MoveNext();
+}
 /////////////////////////////////////////////////////////////////////////////////////////
 //
 // Class
@@ -15,13 +19,14 @@
 //
 ////////////////////////////////////////////////////////////////////////////////////////
 
-public class Lexer
+public class Lexer:ILexer
 {
     int lastchar;
     UInt32 number;
     Token token;
     string textToParse;
     int index = 0;
+    NumberLexer numLexer;
 
     ////////////////////////////////////////////////////////////////////////////////////
     //
@@ -33,15 +38,22 @@ public class Lexer
     //      to a space (will be consumed later).
     //
     public Lexer(string textToParse)
+        : this(textToParse, null)
     {
-        if (string.IsNullOrEmpty(textToParse)) {
+        this.numLexer = new NumberLexer(this);
+        
+    }
+    public Lexer(string textToParse, NumberLexer numLexer)
+    {
+        if (string.IsNullOrEmpty(textToParse))
+        {
             throw new ArgumentException("I cant parse nothing", "textToParse");
         }
         lastchar = ' ';
+        this.numLexer = numLexer;
         number = 0;
         token = Token.NO_TOK;
         this.textToParse = textToParse;
-        
     }
 
     ////////////////////////////////////////////////////////////////////////////////////
@@ -153,4 +165,9 @@ public class Lexer
     //
     public Token getToken() { return token; }
 
+
+    public void MoveNext()
+    {
+        this.index++;
+    }
 }  // class Lexer ////////////////////////////////////////////////////////////////////////

@@ -13,7 +13,7 @@ using System;
 
 
 
-public class Parser
+public class NodeParser
 {
     Lexer lexer;
 
@@ -25,7 +25,7 @@ public class Parser
     // Implements
     //      Saves the lexer object in this parser instance.
     //
-    public Parser(Lexer l)
+    public NodeParser(Lexer l)
     {
         lexer = l;
     }
@@ -51,7 +51,7 @@ public class Parser
     //
     public void Parse()
     {
-        Int32 result = 0;
+        Node result = new Node();
 
         while (true)
         {
@@ -85,9 +85,9 @@ public class Parser
      this is the first thing that gets run when a token is found because it is for add/subtract you have to keep going further to do the multiple/dividse first
      * you can see it is calling Rdf which represnts rules that need to be run before Rdt is run
      */
-    Int32 DoAddSubtraction()
+    Node DoAddSubtraction()
     {
-        Int32 result = DoMultiplyDivide();
+        Node result = DoMultiplyDivide();
 
         while (true)
         {
@@ -120,10 +120,10 @@ public class Parser
     /*
      
      */
-    Int32 DoMultiplyDivide()
+    Node DoMultiplyDivide()
     {
         //call the function with the rules in it that need to be checked before this
-        Int32 result = DoNumberParenthesis();
+        Node result = DoNumberParenthesis();
 
         while (true)
         {
@@ -156,19 +156,18 @@ public class Parser
     /*
      I don't understand why getting a number token and a parenthesis token are put together
      */
-    Int32 DoNumberParenthesis()
+    Node DoNumberParenthesis()
     {
-        Int32 result;
+        Node result = new Node();
 
         switch (lexer.getToken())
         {
             case Token.NUMBER:
-                result = (Int32)lexer.getNumber();
+                result.Value = lexer.getNumber().ToString();
                 break;
 
             case Token.LPAREN:
                 lexer.lex();
-                //why does this get called as opposed to DoMultiplyDivide???
                 result = DoAddSubtraction();
                 if (lexer.getToken() != Token.RPAREN)
                 {
@@ -187,3 +186,50 @@ public class Parser
     }
 
 } // class Parser ////////////////////////////////////////////////////////////////////////
+
+public class Node
+{
+    public Node Left { get; set; }
+    public Node Right { get; set; }
+    public string Value { get; set; }
+    public void Run()
+    {
+
+    }
+    public static Node operator +(Node c1, Node c2)
+    {
+        if (c1.Left == null)
+            c1.Left = c2;
+        else if (c1.Right == null)
+            c1.Right = c2;
+        return c1;
+
+    }
+    public static Node operator -(Node c1, Node c2)
+    {
+        if (c1.Left == null)
+            c1.Left = c2;
+        else if (c1.Right == null)
+            c1.Right = c2;
+        return c1;
+
+    }
+    public static Node operator *(Node c1, Node c2)
+    {
+        if (c1.Left == null)
+            c1.Left = c2;
+        else if (c1.Right == null)
+            c1.Right = c2;
+        return c1;
+
+    }
+    public static Node operator /(Node c1, Node c2)
+    {
+        if (c1.Left == null)
+            c1.Left = c2;
+        else if (c1.Right == null)
+            c1.Right = c2;
+        return c1;
+
+    }
+}

@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="Lexer.cs" />
+    <Compile Include="NodeParser.cs" />
+    <Compile Include="NumberLexer.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

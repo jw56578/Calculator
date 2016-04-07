@@ -50,12 +50,16 @@ class FourFuncCalcApp
 {
     public static void Main()
     {
+        RunTemplateParser();
+    }
+    public static void RunParser()
+    {
         Console.WriteLine("Four Function Calculator (Ctrl-D to quit, Enter after each line, ';' to end expression)");
 
         var input = "";
         while (!string.IsNullOrEmpty(input = Console.ReadLine())) {
             Lexer lexer = new Lexer(input);
-            Parser parser = new Parser(lexer);
+            NodeParser parser = new NodeParser(lexer);
             try
             {
                 parser.Parse();
@@ -72,6 +76,28 @@ class FourFuncCalcApp
 
         Console.WriteLine("Finished.");
         
+    }
+    public static void RunTemplateParser(){
+        var input = @"
+            <div>{{
+  
+            }}</div>
+        ";
+        Func<string,string,string> getFullName = (f,l) => {
+            return l + f;
+        };
+        var scope = new { FirstName = "", LastName = "", GetFullName =getFullName};
+        Lexer lexer = new Lexer(input);
+        NodeParser parser = new NodeParser(lexer);
+        try
+        {
+            parser.Parse();
+        }
+        catch
+        {
+            Console.WriteLine("Doh!!");
+        }
+    
     }
 }
 
